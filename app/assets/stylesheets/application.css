@@ -1,5 +1,15 @@
-= require_self
-= require_tree .
+/*= require tipTip */
+
+@font-face {
+    font-family: 'RalewayThin';
+    src: url('/fonts/raleway_thin-webfont.eot');
+    src: url('/fonts/raleway_thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/raleway_thin-webfont.woff') format('woff'),
+         url('/fonts/raleway_thin-webfont.ttf') format('truetype'),
+         url('/fonts/raleway_thin-webfont.svg#RalewayThin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .standard-graph, .iframe-graph {
   height: 300px;
@@ -43,6 +53,7 @@ h2 {
 h2.special {
   float: left;
   margin-left: 120px;
+  font-family: RalewayThin;
 }
 h2 a {
   font-size: 22px;
@@ -50,12 +61,12 @@ h2 a {
 h3 {
   text-transform: uppercase;
   font-size: 50px;
-  font-family: raleway-1;
+  font-family: RalewayThin;
   margin: 0 10px 20px 10px;
 }
 h5 {
   font-size: 20px;
-  font-family: raleway-1;
+  font-family: RalewayThin;
 }
 p {
   font-size: 14px;
@@ -176,7 +187,7 @@ input:hover[type="submit"] {
   margin: 0 0 0 0;
 }
 
-a.createButton {
+a.create-button {
   width: 220px;
   height: 40px;
   background: url(/assets/buttons/create.png) no-repeat 0px 0px;
@@ -218,7 +229,7 @@ a.source {
   border: 1px solid #9b9b9b;
   text-decoration: none;
 }
-a.demoLink {
+a.demo-link {
   display:block;
   width: 100px;
   background: #efefef;

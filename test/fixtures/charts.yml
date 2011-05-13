@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  x_label: MyString
+  y_label: MyString
+  user: 
+  points: MyString
+
+two:
+  name: MyString
+  x_label: MyString
+  y_label: MyString
+  user: 
+  points: MyString
