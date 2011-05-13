@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SimulchartRails</title>
+  <title>Simulchart</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="header">
+    <div class="wrapper">
+      <%= link_to "Simulchart", root_path, :class => "title" %>
+      <%= link_to "@simulchart", twitter_path, :class => "twitter", :target => "_blank" %>
+    </div>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
+  <div class="credit">
+    <div class="wrapper">
+      <div class="col">
+        <span>Made with:</span>
+        <%= image_tag "made/raphael.png", :alt => "Raphaël.js" %>
+      </div>
+      <div class="col">
+        <span>
+          Built by:
+          <%= link_to "Mat Schaffer", mat_path %>,
+          <%= link_to "Trotter Cashion", trotter_path %>,
+          <%= link_to "Steve Berry", steve_path %>
+        </span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
