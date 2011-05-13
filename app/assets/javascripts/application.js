@@ -1,4 +1,5 @@
-//= require jquery
+//= require_tree ./lib
 //= require jquery_ujs
 //= require jquery.tipTip
-//= require_tree .
+//= require awesometown
+//= require_tree ./awesometown

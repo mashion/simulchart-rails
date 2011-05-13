@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>Simulchart</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -32,6 +31,9 @@
       </div>
     </div>
   </div>
+
+  <%= javascript_include_tag "application" %>
+  <%= yield :page_scripts %>
 
   <%= javascript_tag do %>
     var _gaq = _gaq || [];

@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   def index
     @charts = []
-    @bieber = Chart.new
+    @bieber = Chart.first
   end
 
   def demos
-    @load = Chart.new
-    @everybody = Chart.new
+    @load = Chart.first
+    @everybody = Chart.first
   end
 end

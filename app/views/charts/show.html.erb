@@ -1,0 +1,78 @@
+<div class="heading">
+  <div class="wrapper">
+    <div class="col">
+      <h2 class="special" style="text-align:left; padding-left:0px;">Set Up Your Chart</h2>
+    </div>
+    <div class="col">
+      <%= link_to "New Chart", charts_path, :id => "addButton", :class => "button", :method => :post %>
+      <%= link_to "View All Charts", "#", :id => "toggleButton", :class => "button" %>
+    </div>
+    <div class="clearfix">
+    </div>
+    <ul class="list">
+      <%= render @charts %>
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="wrapper">
+    <h3><%= @chart.name %></h3>
+    <div id="graph" class="standard-graph"></div>
+    <div class="properties">
+      <%= form_for @chart do |f| %>
+        <span>
+          <%= f.label :name, "Title" %>
+          <%= f.text_field :name, :tabindex => "1" %>
+        </span>
+        <span>
+          <%= f.label :x_label, "X-Axis Label" %>
+          <%= f.text_field :x_label, :class => "small", :tabindex => "2" %>
+        </span>
+        <span>
+          <%= f.label :y_label, "Y-Axis Label" %>
+          <%= f.text_field :y_label, :class => "small", :tabindex => "3" %>
+        </span>
+        <span>
+          <%= f.submit "Save Settings", :tabindex => "4", :style => "margin:13px 0 0 0px;float:left;" %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="code">
+  <div class="wrapper">
+    <h3>Embed Code</h3>
+    <p>Cut and Paste this snippet of code into your web site where you want the chart to be.</p>
+    <span class="code">
+      &lt;iframe src="<%= embed_chart_path(@chart) %>?width=960&amp;height=300" frameBorder="0" style="width: 960px; height: 300px;"&gt;&lt;/iframe&gt;
+    </span>
+  </div>
+</div>
+
+<div class="content">
+  <div class="wrapper">
+    <h3>Curling</h3>
+    <p>No, you won't need a rock and a broom. Using curl or a similar tool, you can append new values to your graph like this. How you use it is up to you. Plot visitors to your website, your system usage, your eating habits, it's all you.</p>
+    <span class="code">
+      curl -d value=123 <%= chart_url(@chart) %>/appendValue
+    </span>
+  </div>
+</div>
+
+<%= content_for :page_scripts do %>
+  <script type="text/javascript">
+    var data = <%= @chart.points.to_json %>,
+        graph = new Awesometown.Graph("graph", data);
+    graph.xLabelText = <%= @chart.x_label.to_json %>;
+    graph.yLabelText = <%= @chart.y_label.to_json %>;
+    graph.draw();
+    updater = new Awesometown.Updater('<%= @chart.id %>', graph);
+    $(function() {
+      $("#toggleButton").click(function() {
+        $(".list").toggle("slow");
+      });
+    });
+  </script>
+<% end %>
