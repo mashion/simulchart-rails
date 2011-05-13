@@ -34,7 +34,7 @@
     </div>
     <div class="demo-chart">
       <%= image_tag "overlay/justin.png" %>
-      <iframe src="<%= url_for(@bieber) %>" frameBorder="0"></iframe>
+      <%= chart_embed(@bieber) %>
       <%= link_to "View Source", gist_bieber_path, :class => "source" %>
     </div>
   </div>

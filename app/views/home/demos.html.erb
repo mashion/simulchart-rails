@@ -1,0 +1,51 @@
+<div class="content">
+  <div class="wrapper">
+    <h3>DEMOS</h3>
+    <div class="demo-chart">
+      <%= image_tag 'overlay/values.png', :class => "values" %>
+      <%= chart_embed(@everyone) %>
+      <div class="properties">
+        <form action="<%= url_for(@everyone) %>/appendValue" method="post" onsubmit="return everyoneForm();">
+          <span>
+            <%= text_field_tag :value, '', :class => "small" %>
+          </span>
+          <span>
+            <%= submit_tag 'Add your own point' %>
+          </span>
+          <span style="width: 490px;">
+            <p style="margin-bottom:0;">
+              Anyone can add a value. Just punch in a number and hit the button!
+            </p>
+            <p class="sub">
+              There is a two value buffer (to make the chart nicer). Enter several values to see the chart in action.
+            </p>
+          </span>
+        </form>
+      </div>
+      <div class="clearfix" />
+    </div>
+
+    <div class="demo-chart">
+      <%= image_tag "overlay/server.png" %>
+      <%= chart_embed(@load) %>
+      <div class="properties">
+        <span>
+          <p>And here's our server load average, fed via curl.</p>
+        </span>
+        <span style="float:right;">
+          <%= link_to "View Source", gist_load_path, :target => "_blank", :class => "source", :style => "margin-right:0;" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  function everyoneForm() {
+    var form = $(this);
+    $.post(form.attr('action'), form.serialize());
+    form.find('input[type="text"]').val('');
+    return false;
+  }
+<% end %>
+

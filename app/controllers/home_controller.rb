@@ -3,4 +3,9 @@ class HomeController < ApplicationController
     @charts = []
     @bieber = Chart.new
   end
+
+  def demos
+    @load = Chart.new
+    @everybody = Chart.new
+  end
 end
