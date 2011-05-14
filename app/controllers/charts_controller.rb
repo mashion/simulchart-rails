@@ -10,6 +10,7 @@ class ChartsController < ApplicationController
   end
 
   def embed
+    render :layout => nil
   end
 
   def find_chart
