@@ -5,4 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Daley', city: cities.first)
-Chart.create
+Chart.create(name:    "From DB Seeds",
+             x_label: "time",
+             y_label: "awesome",
+             points:  "1,2,3,4,5,6,20,4,3")
+
