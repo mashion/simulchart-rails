@@ -2,6 +2,7 @@ SimulchartRails::Application.routes.draw do
   resources :charts do
     member do
       get :embed
+      post :append_value
     end
   end
 
