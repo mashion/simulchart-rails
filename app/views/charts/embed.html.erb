@@ -26,7 +26,7 @@
         graph.xLabelText = <%= raw(@chart.x_label.to_json) %>;
         graph.yLabelText = <%= raw(@chart.y_label.to_json) %>;
         graph.draw();
-        updater = new Awesometown.Updater('<%= @chart.id %>', graph);
+        updater = new Awesometown.Updater('<%= @chart.id %>', graph, '<%= Settings["chloe"]["host"] %>', '<%= Settings["chloe"]["port"] %>');
       });
     </script>
   </body>
