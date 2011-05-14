@@ -8,5 +8,13 @@
 Chart.create(name:    "From DB Seeds",
              x_label: "time",
              y_label: "awesome",
-             points:  "1,2,3,4,5,6,20,4,3")
+             points:  [{x: 1, y: 1},
+                       {x: 2, y: 2},
+                       {x: 3, y: 13},
+                       {x: 4, y: 4},
+                       {x: 5, y: 5},
+                       {x: 6, y: 6},
+                       {x: 7, y: 20},
+                       {x: 8, y: 4},
+                       {x: 9, y: 3}])
 

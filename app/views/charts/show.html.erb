@@ -46,7 +46,7 @@
     <h3>Embed Code</h3>
     <p>Cut and Paste this snippet of code into your web site where you want the chart to be.</p>
     <span class="code">
-      &lt;iframe src="<%= embed_chart_path(@chart) %>?width=960&amp;height=300" frameBorder="0" style="width: 960px; height: 300px;"&gt;&lt;/iframe&gt;
+      &lt;iframe src="<%= embed_chart_url(@chart, :width => 960, :height => 300) %>" frameBorder="0" style="width: 960px; height: 300px;"&gt;&lt;/iframe&gt;
     </span>
   </div>
 </div>
@@ -63,10 +63,10 @@
 
 <%= content_for :page_scripts do %>
   <script type="text/javascript">
-    var data = <%= @chart.points.to_json %>,
+    var data = <%= raw(@chart.points.to_json) %>,
         graph = new Awesometown.Graph("graph", data);
-    graph.xLabelText = <%= @chart.x_label.to_json %>;
-    graph.yLabelText = <%= @chart.y_label.to_json %>;
+    graph.xLabelText = <%= raw(@chart.x_label.to_json) %>;
+    graph.yLabelText = <%= raw(@chart.y_label.to_json) %>;
     graph.draw();
     updater = new Awesometown.Updater('<%= @chart.id %>', graph);
     $(function() {

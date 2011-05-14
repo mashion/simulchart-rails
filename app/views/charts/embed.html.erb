@@ -1,1 +1,34 @@
-<h1>I'm a chart!</h1>
+<html>
+  <head>
+    <title><%= @chart.name %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= favicon_link_tag %>
+  </head>
+  <body>
+    <div id="graph"></div>
+    <%= javascript_include_tag "application" %>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.list').hide();
+      });
+
+      $(function() {
+        $("#toggleButton").click(function() {
+          $(".list").toggle("slow"); })
+        });
+
+      $(function () {
+        $('#graph').css('width', $.query.get('width'));
+        $('#graph').css('height', $.query.get('height'));
+        var data = <%= raw(@chart.points.to_json) %>,
+            graph = new Awesometown.Graph("graph", data);
+        graph.xLabelText = <%= raw(@chart.x_label.to_json) %>;
+        graph.yLabelText = <%= raw(@chart.y_label.to_json) %>;
+        graph.draw();
+        updater = new Awesometown.Updater('<%= @chart.id %>', graph);
+      });
+    </script>
+  </body>
+</html>
+
