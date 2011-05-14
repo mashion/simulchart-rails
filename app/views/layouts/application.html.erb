@@ -33,8 +33,7 @@
     </div>
   </div>
 
-  <%= javascript_include_tag "application" %>
-  <%= yield :page_scripts %>
+  <%= render :partial => "shared/javascript" %>
 
   <%= javascript_tag do %>
     var _gaq = _gaq || [];

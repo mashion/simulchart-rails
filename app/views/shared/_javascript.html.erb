@@ -1,0 +1,10 @@
+<%= javascript_include_tag "application" %>
+<!-- TODO (trotter): Combine all the chloe js files into one file -->
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/json2.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-client.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-websocket.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-xhr.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-xdomain.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-jsonp.js"></script>
+<script type="text/javascript" src="http://<%= Settings["chloe"]["host"] %>:<%= Settings["chloe"]["port"] %>/chloe-message.js"></script>
+<%= yield :page_scripts %>
