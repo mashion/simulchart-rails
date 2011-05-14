@@ -6,6 +6,6 @@ class HomeController < ApplicationController
 
   def demos
     @load = Chart.first
-    @everybody = Chart.first
+    @everyone = Chart.first
   end
 end
