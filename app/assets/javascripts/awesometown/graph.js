@@ -169,17 +169,13 @@ Awesometown.Graph.prototype = {
   pointsToCurvedPath: function (points) {
     var self  = this,
         first = points[0],
-        rest  = points.slice(1),
-        start = ["M", first.x, first.y, "C", first.x, first.y],
-        curves = _.flatten(_.map(rest, function (point, i) {
-          var before = points[i], // We're offset by 1 because of the slice(1)
-              after  = points[i + 2],
-              a; //anchors
-          if (after) {
-            a = self.getAnchors(before.x, before.y, point.x, point.y, after.x, after.y);
-            return [a.x1, a.y1, point.x, point.y, a.x2, a.y2];
-          } else {
-            return [point.x, point.y, point.x, point.y];
+        start = ["M", first.x, first.y],
+        curves = _.flatten(_.map(points, function (point, i) {
+          var nextPoint  = points[i + 1],
+              halfX;
+          if (nextPoint) {
+            halfX = (point.x + nextPoint.x) / 2;
+            return ["C", halfX, point.y, halfX, nextPoint.y, nextPoint.x, nextPoint.y];
           }
         }));
         return start.concat(curves);
