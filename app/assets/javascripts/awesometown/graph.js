@@ -113,19 +113,14 @@ Awesometown.Graph.prototype = {
     return this.memo.scaleFactor;
   },
 
-  xAdjuster: function () {
-    return 0;
-  },
-
   points: function () {
     if (this.data.length < this.bufferRight + 1) return [];
     if (this.memo.points) return this.memo.points;
 
-    var self = this,
-        xAdjuster = this.xAdjuster();
+    var self = this;
     
     this.memo.points = _.map(this.visibleData(), function (d) {
-      return { x: ((d.x || 0) - self.minVisibleX() - xAdjuster) * self.scaleFactor().x + self.gutters.left,
+      return { x: ((d.x || 0) - self.minVisibleX()) * self.scaleFactor().x + self.gutters.left,
                y: self.containerDimensions.height - (self.gutters.bottom + ((d.y || 0) * self.scaleFactor().y)) };
     });
 
@@ -248,7 +243,7 @@ Awesometown.Graph.prototype = {
   },
 
   xToData: function (x) {
-    var dataX = (x - this.gutters.left) / this.scaleFactor().x + this.minVisibleX() + this.xAdjuster();
+    var dataX = (x - this.gutters.left) / this.scaleFactor().x + this.minVisibleX();
         rm = this.roundingMultiplier(this.rangeSize);
     return Math.round(dataX * rm) / rm;
   },
