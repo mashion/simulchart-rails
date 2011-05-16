@@ -86,8 +86,8 @@ Awesometown.Graph.prototype = {
   maxX: function () {
     if (this.memo.maxX) return this.memo.maxX;
     this.memo.maxX = _.max(_.map(this.data, function (d) {
-                                          return d.x;
-                                        }));
+                                              return d.x;
+                                            }).concat([0]));
     return this.memo.maxX;
   },
 
@@ -113,11 +113,10 @@ Awesometown.Graph.prototype = {
   },
 
   points: function () {
-    if (this.data.length < 1) return [];
     if (this.memo.points) return this.memo.points;
 
     var self = this;
-    
+
     this.memo.points = _.map(this.visibleData(), function (d) {
       return { x: ((d.x || 0) - self.minVisibleX()) * self.scaleFactor().x + self.gutters.left - self.background.overflow,
                y: self.containerDimensions.height - (self.gutters.bottom + ((d.y || 0) * self.scaleFactor().y)) };
