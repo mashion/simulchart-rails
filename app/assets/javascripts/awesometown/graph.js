@@ -106,7 +106,7 @@ Awesometown.Graph.prototype = {
     if (this.memo.scaleFactor) return this.memo.scaleFactor;
 
     var y = (this.containerDimensions.height - this.gutters.top - this.gutters.bottom) / this.maxY(),
-        x = (this.containerDimensions.width - this.gutters.right - this.gutters.left) / this.rangeSize;
+        x = (this.containerDimensions.width - this.gutters.right - this.gutters.left + this.background.overflow) / this.rangeSize;
 
     this.memo.scaleFactor = { x: x, y: y };
 
