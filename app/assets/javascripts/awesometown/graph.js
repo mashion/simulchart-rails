@@ -39,7 +39,6 @@ Awesometown.Graph = function (container, data, configuration) {
   this.container = container;
   this.newPoints = [];
 //  this.absoluteMaxY = 0;
-  this.bufferRight  = 1; // buffer this many points off the right of the viewport
 
   if (configuration) {
     _.extend(this, configuration);
@@ -63,7 +62,7 @@ Awesometown.Graph.prototype = {
         first = _.detect(this.data, function (d) {
             return d.x >= self.minVisibleX();
           }),
-        index = _.max([_.indexOf(this.data, first) - self.bufferRight, 0]),
+        index = _.max([_.indexOf(this.data, first), 0]),
         slicePosition = _.max([index, 0]);
 
     this.data = this.data.slice(slicePosition);
@@ -106,7 +105,7 @@ Awesometown.Graph.prototype = {
     if (this.memo.scaleFactor) return this.memo.scaleFactor;
 
     var y = (this.containerDimensions.height - this.gutters.top - this.gutters.bottom) / this.maxY(),
-        x = (this.containerDimensions.width - this.gutters.right - this.gutters.left + this.background.overflow) / this.rangeSize;
+        x = (this.containerDimensions.width - this.gutters.right - this.gutters.left + 2 * this.background.overflow) / this.rangeSize;
 
     this.memo.scaleFactor = { x: x, y: y };
 
@@ -114,13 +113,13 @@ Awesometown.Graph.prototype = {
   },
 
   points: function () {
-    if (this.data.length < this.bufferRight + 1) return [];
+    if (this.data.length < 1) return [];
     if (this.memo.points) return this.memo.points;
 
     var self = this;
     
     this.memo.points = _.map(this.visibleData(), function (d) {
-      return { x: ((d.x || 0) - self.minVisibleX()) * self.scaleFactor().x + self.gutters.left,
+      return { x: ((d.x || 0) - self.minVisibleX()) * self.scaleFactor().x + self.gutters.left - self.background.overflow,
                y: self.containerDimensions.height - (self.gutters.bottom + ((d.y || 0) * self.scaleFactor().y)) };
     });
 
