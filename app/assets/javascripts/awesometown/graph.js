@@ -114,13 +114,7 @@ Awesometown.Graph.prototype = {
   },
 
   xAdjuster: function () {
-    if (this.memo.xAdjuster) return this.memo.xAdjuster;
-    if (this.visibleData().length < 2) return 0;
-
-    var lastTwo = this.visibleData().slice(-2);
-
-    this.memo.xAdjuster = lastTwo[0].x - lastTwo[1].x; // Ensures the last point is off to the right
-    return this.memo.xAdjuster;
+    return 0;
   },
 
   points: function () {
