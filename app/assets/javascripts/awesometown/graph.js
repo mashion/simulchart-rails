@@ -40,7 +40,6 @@ Awesometown.Graph = function (container, data, configuration) {
   this.newPoints = [];
 //  this.absoluteMaxY = 0;
   this.bufferRight  = 1; // buffer this many points off the right of the viewport
-  this.keepLeft     = 2; // keep this many points off the left of the viewport
 
   if (configuration) {
     _.extend(this, configuration);
@@ -65,10 +64,10 @@ Awesometown.Graph.prototype = {
             return d.x >= self.minVisibleX();
           }),
         index = _.max([_.indexOf(this.data, first) - self.bufferRight, 0]),
-        slicePosition = _.max([index - self.keepLeft, 0]);
+        slicePosition = _.max([index, 0]);
 
     this.data = this.data.slice(slicePosition);
-    this.memo.visibleData = this.data.slice(this.data.slice(self.keepLeft));
+    this.memo.visibleData = this.data;
 
     return this.memo.visibleData;
   },
@@ -139,6 +138,27 @@ Awesometown.Graph.prototype = {
     return this.memo.points;
   },
 
+  // Shamelessly yoinked from http://raphaeljs.com/analytics.html
+  getAnchors: function (p1x, p1y, p2x, p2y, p3x, p3y) {
+      var l1 = (p2x - p1x) / 2,
+          l2 = (p3x - p2x) / 2,
+          a = Math.atan((p2x - p1x) / Math.abs(p2y - p1y)),
+          b = Math.atan((p3x - p2x) / Math.abs(p2y - p3y));
+      a = p1y < p2y ? Math.PI - a : a;
+      b = p3y < p2y ? Math.PI - b : b;
+      var alpha = Math.PI / 2 - ((a + b) % (Math.PI * 2)) / 2,
+          dx1 = l1 * Math.sin(alpha + a),
+          dy1 = l1 * Math.cos(alpha + a),
+          dx2 = l2 * Math.sin(alpha + b),
+          dy2 = l2 * Math.cos(alpha + b);
+      return {
+          x1: p2x - dx1,
+          y1: p2y + dy1,
+          x2: p2x + dx2,
+          y2: p2y + dy2
+      };
+  },
+
   pointsToPath: function (points) {
     return "M," + points[0].x + "," + points[0].y + "L" + _.map(points.slice(1), function (point) {
               return point.x + "," + point.y;
@@ -171,7 +191,7 @@ Awesometown.Graph.prototype = {
 
   animationMultiplier: function () {
     if (this.data.length + this.newPoints.length == 0) return 1; // don't want to divide by zero
-    return (this.rangeSize + this.keepLeft) / (this.data.length + this.newPoints.length);
+    return this.rangeSize / (this.data.length + this.newPoints.length);
   },
 
   animateLine: function () {
