@@ -1,9 +1,10 @@
 source 'http://rubygems.org'
 
-# gem 'rails', '3.1.0.beta1'
+gem 'sprockets', '2.0.0.beta.2'
+gem 'rails', '3.1.0.beta1'
 
 # Bundle edge Rails instead:
-gem 'rails',     :git => 'git://github.com/rails/rails.git'
+#gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
@@ -21,7 +22,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 group :development do
-  gem 'mysql2', :git => 'git://github.com/brianmario/mysql2.git'
+  gem 'mysql2'
 end
 
 group :development, :test do
