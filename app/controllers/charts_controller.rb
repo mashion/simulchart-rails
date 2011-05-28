@@ -1,7 +1,8 @@
 require 'net/http'
 
 class ChartsController < ApplicationController
-  before_filter :find_chart, :except => :create
+  before_filter :find_chart, :only => [:show, :embed]
+  before_filter :find_chart_by_update_key, :only => [:update, :append_value]
 
   def create
     redirect_to Chart.create(:points => [])
@@ -35,4 +36,9 @@ class ChartsController < ApplicationController
     @chart = Chart.find(params[:id])
   end
   private :find_chart
+
+  def find_chart_by_update_key
+    @chart = Chart.find_by_update_key(params[:id])
+  end
+  private :find_chart_by_update_key
 end

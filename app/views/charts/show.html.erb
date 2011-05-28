@@ -20,7 +20,7 @@
     <h3><%= @chart.name %></h3>
     <div id="graph" class="standard-graph"></div>
     <div class="properties">
-      <%= form_for @chart do |f| %>
+      <%= form_for @chart, :url => chart_url(@chart.update_key) do |f| %>
         <span>
           <%= f.label :name, "Title" %>
           <%= f.text_field :name, :tabindex => "1" %>
@@ -56,7 +56,7 @@
     <h3>Curling</h3>
     <p>No, you won't need a rock and a broom. Using curl or a similar tool, you can append new values to your graph like this. How you use it is up to you. Plot visitors to your website, your system usage, your eating habits, it's all you.</p>
     <span class="code">
-      curl -d value=123 <%= chart_url(@chart) %>/append_value
+      curl -d value=123 <%= chart_url(@chart.update_key) %>/append_value
     </span>
   </div>
 </div>
