@@ -5,7 +5,7 @@ class CreateCharts < ActiveRecord::Migration
       t.string :x_label
       t.string :y_label
       t.belongs_to :user
-      t.string :points
+      t.text   :points
       t.string :update_key
 
       t.timestamps

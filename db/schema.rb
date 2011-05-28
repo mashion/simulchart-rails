@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110513190803) do
     t.string   "x_label"
     t.string   "y_label"
     t.integer  "user_id"
-    t.string   "points"
+    t.text     "points"
     t.string   "update_key"
     t.datetime "created_at"
     t.datetime "updated_at"
