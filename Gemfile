@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-#gem 'sprockets', '2.0.0.beta.2'
 gem 'rails', '3.1.0.rc1'
 gem 'omniauth'
 

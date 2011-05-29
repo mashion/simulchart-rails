@@ -5,7 +5,7 @@ class ChartsController < ApplicationController
   before_filter :find_chart_by_update_key, :only => [:update, :append_value]
 
   def create
-    redirect_to Chart.create(:points => [])
+    redirect_to current_user.charts.create(:points => [])
   end
 
   def show
