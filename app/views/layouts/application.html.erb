@@ -10,7 +10,11 @@
   <div class="header">
     <div class="wrapper">
       <%= link_to "Simulchart", root_path, :class => "title" %>
-      <%= link_to "@simulchart", twitter_path, :class => "twitter", :target => "_blank" %>
+      <% if current_user %>
+        <%= link_to "Signout", signout_path, :class => "navigation" %>
+      <% else %>
+      <% end %>
+      <%= link_to "@simulchart", twitter_path, :class => "twitter navigation", :target => "_blank" %>
     </div>
   </div>
 

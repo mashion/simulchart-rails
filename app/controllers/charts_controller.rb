@@ -9,7 +9,7 @@ class ChartsController < ApplicationController
   end
 
   def show
-    @charts = []
+    @charts = current_user ? current_user.charts : []
   end
 
   def update

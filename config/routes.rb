@@ -8,6 +8,8 @@ SimulchartRails::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'sessions#create'
   match '/auth/failure' => redirect("/")
+  match '/signout' => 'sessions#destroy', :as => 'signout'
+  match '/signin'  => 'sessions#new', :as => 'signin'
 
   match '/twitter' => redirect("http://twitter.com/simulchart")
   match '/mat'     => redirect("http://matschaffer.com")

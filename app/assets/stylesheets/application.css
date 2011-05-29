@@ -204,9 +204,13 @@ a.createButton:hover {
 a.createButton:active {
   background-position: 0 -80px;
 }
+
 a.twitter {
-  height: 19px;
   background: url(/assets/icons/tweet.png) no-repeat 0px 0px;
+}
+
+.header a.navigation {
+  height: 19px;
   display: block;
   float: right;
   margin: 57px 0 0;

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @charts = []
+    @charts = current_user ? current_user.charts : []
     @bieber = Chart.first
   end
 

@@ -3,7 +3,7 @@
     <h2 class="special">
       Real-time charts you can share and embed.
     </h2>
-    <%= link_to "Create your own!", '/auth/twitter', :class => "create-button", :method => :post  %>
+    <%= link_to "Create your own!", signin_path, :class => "create-button" %>
   </div>
 </div>
 
@@ -12,7 +12,7 @@
     <div class="wrapper">
       <p style="text-align:center; margin:10px;">
         You have already made some charts.
-        <%= link_to "Click here to view them.", charts_path %>
+        <%= link_to "Click here to view them.", chart_path(@charts.first) %>
       </p>
     </div>
   </div>

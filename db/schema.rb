@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513190803) do
+ActiveRecord::Schema.define(:version => 20110529134326) do
 
   create_table "charts", :force => true do |t|
     t.string   "name"
@@ -25,5 +25,11 @@ ActiveRecord::Schema.define(:version => 20110513190803) do
 
   add_index "charts", ["update_key"], :name => "index_charts_on_update_key"
   add_index "charts", ["user_id"], :name => "index_charts_on_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "twitter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

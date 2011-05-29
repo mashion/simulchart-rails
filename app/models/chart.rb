@@ -2,6 +2,8 @@ class Chart < ActiveRecord::Base
   belongs_to :user
   before_create :create_update_key
 
+  validates_presence_of :user_id
+
   def points=(vals)
     # We're only keeping the last 30
     write_attribute(:points, vals.last(30).to_json)
