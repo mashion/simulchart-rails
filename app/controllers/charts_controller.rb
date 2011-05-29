@@ -1,6 +1,7 @@
 require 'net/http'
 
 class ChartsController < ApplicationController
+  before_filter :login_required, :only => :create
   before_filter :find_chart, :only => [:show, :embed]
   before_filter :find_chart_by_update_key, :only => [:update, :append_value]
 

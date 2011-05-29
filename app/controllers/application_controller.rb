@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     User.find_by_id(session[:user_id])
   end
   helper_method :current_user
+
+  def login_required
+    redirect_to root_url unless current_user
+  end
 end
