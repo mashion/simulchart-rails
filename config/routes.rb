@@ -6,6 +6,9 @@ SimulchartRails::Application.routes.draw do
     end
   end
 
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/auth/failure' => redirect("/")
+
   match '/twitter' => redirect("http://twitter.com/simulchart")
   match '/mat'     => redirect("http://matschaffer.com")
   match '/trotter' => redirect("http://www.trottercashion.com")
