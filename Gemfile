@@ -6,7 +6,6 @@ gem 'omniauth'
 # Bundle edge Rails instead:
 #gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 # Asset template engines
 gem 'sass'
@@ -20,6 +19,9 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+group :production do
+  gem 'pg'
+end
 
 group :development do
   gem 'mysql2'
@@ -32,4 +34,5 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'sqlite3'
 end
