@@ -13,6 +13,7 @@
       <% if current_user %>
         <%= link_to "Signout", signout_path, :class => "navigation" %>
       <% else %>
+        <%= link_to "Signin", signin_path, :class => "navigation" %>
       <% end %>
       <%= link_to "@simulchart", twitter_path, :class => "twitter navigation", :target => "_blank" %>
     </div>
