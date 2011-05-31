@@ -7,6 +7,6 @@ module ChartsHelper
   # we do anything else.
   def owner?
     return unless current_user
-    @chart.user_id == current_user
+    @chart.user_id == current_user.id
   end
 end
