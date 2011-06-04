@@ -32,4 +32,6 @@ ActiveRecord::Schema.define(:version => 20110529134326) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["twitter_id"], :name => "index_users_on_twitter_id"
+
 end
