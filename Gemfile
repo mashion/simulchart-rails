@@ -21,11 +21,10 @@ gem 'jquery-rails'
 # gem 'capistrano'
 group :production do
   gem 'therubyracer', '0.9.0beta7'
-  gem 'pg'
 end
 
-group :development do
-  gem 'mysql2'
+group :production, :development do
+  gem 'pg'
 end
 
 group :development, :test do
