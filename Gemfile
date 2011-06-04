@@ -20,6 +20,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 group :production do
+  gem 'therubyracer', '0.9.0beta7'
   gem 'pg'
 end
 
