@@ -1,3 +1,7 @@
 development:
   host: localhost
   port: 8901
+
+production:
+  host: simulchart.com
+  port: 8901
