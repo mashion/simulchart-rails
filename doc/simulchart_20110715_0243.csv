@@ -1,0 +1,14 @@
+Id,Story,Labels,Iteration,Iteration Start,Iteration End,Story Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Owned By,Description,URL
+5513518,Remove nodeko vote link,"",1,"Oct 4, 2010","Oct 10, 2010",chore,,accepted,"Oct 5, 2010","Oct 5, 2010",,Trotter Cashion,Mat Schaffer,,http://www.pivotaltracker.com/story/show/5513518
+5514210,Read demo charts out of db rather than hard coding.,"",1,"Oct 4, 2010","Oct 10, 2010",feature,1,accepted,"Oct 5, 2010","Oct 5, 2010",,Mat Schaffer,Mat Schaffer,,http://www.pivotaltracker.com/story/show/5514210
+5516867,Make nginx serve static assets,"",1,"Oct 4, 2010","Oct 10, 2010",feature,1,accepted,"Oct 5, 2010","Oct 5, 2010",,Trotter Cashion,Trotter Cashion,,http://www.pivotaltracker.com/story/show/5516867
+5147941,Obfuscated graph url,"",1,"Oct 4, 2010","Oct 10, 2010",feature,0,accepted,"Sep 13, 2010","Oct 7, 2010",,Mat Schaffer,Mat Schaffer,,http://www.pivotaltracker.com/story/show/5147941
+5513547,Fix demo graphs (including bieber),"",41,"Jul 11, 2011","Jul 17, 2011",bug,,started,"Oct 5, 2010",,,Trotter Cashion,Mat Schaffer,,http://www.pivotaltracker.com/story/show/5513547
+5147934,Fix chart accuracy,"",41,"Jul 11, 2011","Jul 17, 2011",bug,,unstarted,"Sep 13, 2010",,,Mat Schaffer,,,http://www.pivotaltracker.com/story/show/5147934
+5147929,User accounts,"",41,"Jul 11, 2011","Jul 17, 2011",feature,,unstarted,"Sep 13, 2010",,,Mat Schaffer,,,http://www.pivotaltracker.com/story/show/5147929
+5514338,"Use the new faye, not the old one.","",41,"Jul 11, 2011","Jul 17, 2011",feature,,unstarted,"Oct 5, 2010",,,Trotter Cashion,,,http://www.pivotaltracker.com/story/show/5514338
+5561068,Restart node on server restart,"",,,,bug,,unscheduled,"Oct 7, 2010",,,Trotter Cashion,,,http://www.pivotaltracker.com/story/show/5561068
+5561062,Restart mongodb on server restart,"",,,,bug,,unscheduled,"Oct 7, 2010",,,Trotter Cashion,,,http://www.pivotaltracker.com/story/show/5561062
+5516930,Tell nginx to proxy through the remote address,"",,,,feature,,unscheduled,"Oct 5, 2010",,,Trotter Cashion,,,http://www.pivotaltracker.com/story/show/5516930
+5148023,Allow time-based aggregation of data,"",,,,feature,,unscheduled,"Sep 13, 2010",,,Mat Schaffer,,This should allow people to just post data to us as it comes in and we'll sum it up per minute/second or whatever else people want.,http://www.pivotaltracker.com/story/show/5148023
+5147937,Multiple series per graph,"",,,,feature,,unscheduled,"Sep 13, 2010",,,Mat Schaffer,,,http://www.pivotaltracker.com/story/show/5147937
